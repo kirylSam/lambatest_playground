@@ -9,6 +9,7 @@ public class Page1 extends BasePageObject{
     }
 
     public Page1 openGoogleTest() {
+        //testing git
         driver.navigate().to("https://admin:admin@the-internet.herokuapp.com/basic_auth");
         return this;
     }
