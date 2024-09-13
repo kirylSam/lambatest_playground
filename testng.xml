@@ -4,7 +4,7 @@
 <suite name="Before/After Annotations Suite">
     <test name="Before/After Annotations Test">
         <classes>
-            <class name="Test1" />
+            <class name="Tests.SelectDropdownDemoTests" />
         </classes>
     </test>
 </suite>

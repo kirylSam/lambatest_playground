@@ -1,10 +1,12 @@
+package base;
+
 import org.kirylSam.driver.DriverFactory;
 import org.kirylSam.driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 public class BaseTest {
-    WebDriver driver;
+    protected WebDriver driver;
     DriverManager driverManager;
 
     @BeforeMethod (alwaysRun = true)

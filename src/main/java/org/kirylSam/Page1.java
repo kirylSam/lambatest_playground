@@ -2,7 +2,7 @@ package org.kirylSam;
 
 import org.openqa.selenium.WebDriver;
 
-public class Page1 extends BasePageObject{
+public class Page1 extends BasePage {
 
     public Page1(WebDriver driver) {
         super(driver);
