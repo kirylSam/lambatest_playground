@@ -1,6 +1,5 @@
 package org.kirylSam;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,10 +22,7 @@ public class BasePage {
     WebElement acceptCookies;
 
     protected void waitForCookiesPopupAndAcceptIt() {
-        //TODO FluentWait can be added here
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(acceptCookies)).click();
-
-        System.out.println("Accepted cookies!");
     }
 }

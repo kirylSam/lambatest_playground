@@ -1,6 +1,8 @@
 package org.kirylSam.driver;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,10 +11,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class ChromeDriverManager extends DriverManager{
+    protected static final Logger logger = LogManager.getLogger();
+
     @Override
     protected WebDriver createDriver() {
-        System.out.println("Creating Chrome Driver!");
-
+        logger.info("Created a Chrome Driver");
         return new ChromeDriver(getChromeOptions());
     }
 
@@ -26,7 +29,6 @@ public class ChromeDriverManager extends DriverManager{
         options.addArguments("--incognito");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--ignore-certificate-errors");
-
         return options;
     }
 }
