@@ -13,6 +13,15 @@ public class SelectDropdownDemoTests extends BaseTest {
         logger.debug("Running Single Dropdown Test");
         SelectDropdownDemoPage page = new SelectDropdownDemoPage(this.driver);
         page.selectOptionInSingleSelectDropdown();
-        Assert.assertTrue(page.checkIfDisplayedDaySelectedIsCorrect(), "Check the test");
+        Assert.assertTrue(page.checkIfDisplayedDaySelectedIsCorrect());
+    }
+
+    @Test
+    public void testMultiSelectDropdown() {
+        logger.debug("Running Multi Dropdown Test");
+        SelectDropdownDemoPage page = new SelectDropdownDemoPage(this.driver);
+        page.selectTwoOptionsInMultiSelect();
+        Assert.assertTrue(page.checkIfDisplayedMultiStateFirstSelectedIsCorrect());
+        Assert.assertTrue(page.checkIfDisplayedMultiStateLastSelectedIsCorrect());
     }
 }
