@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
-import java.util.Base64;
 
 public class RadioButtonDropdownDemoPage extends BasePage {
     public RadioButtonDropdownDemoPage(WebDriver driver) {
@@ -31,6 +30,12 @@ public class RadioButtonDropdownDemoPage extends BasePage {
 
     @FindBy(how = How.CSS, using = ".my-10")
     private WebElement radioButtonIsCheckedLabel;
+
+    @FindBy(how = How.CSS, using = "input[type='radio'][value='RadioButton1']")
+    private WebElement radioButton1;
+
+    @FindBy(how = How.CSS, using = "input[type='radio'][value='RadioButton2']")
+    private WebElement radioButton2;
 
     @FindBy(how = How.CSS, using = "input[type='radio'][value='RadioButton3']")
     private WebElement disabledRadioButton;
@@ -69,7 +74,7 @@ public class RadioButtonDropdownDemoPage extends BasePage {
         femaleRadioButton.click();
     }
 
-    public void clickGetFirstValueButton() {
+    public void clickGetValueButton() {
         getFirstValueButton.click();
     }
 
@@ -81,6 +86,15 @@ public class RadioButtonDropdownDemoPage extends BasePage {
 
         String displayedText = wait.until(driver -> radioButtonIsCheckedLabel).getText();
         return displayedText.contains(value);
+    }
+
+    public boolean isButtonEnabled(String radioButtonName) {
+        return switch (radioButtonName) {
+            case "Radio Button 1" -> radioButton1.isEnabled();
+            case "Radio Button 2" -> radioButton2.isEnabled();
+            case "Disabled Radio Button" -> disabledRadioButton.isEnabled();
+            default -> false;
+        };
     }
 }
 
